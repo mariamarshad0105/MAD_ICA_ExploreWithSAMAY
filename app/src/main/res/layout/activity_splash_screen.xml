@@ -6,13 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".Splash_Screen">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageView"
-        android:layout_width="414dp"
-        android:layout_height="825dp"
+        android:layout_width="202dp"
+        android:layout_height="174dp"
+        android:layout_gravity="center"
+        android:src="@drawable/channels4_profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/channels4_profile" />
+        app:layout_constraintVertical_bias="0.5" />
 </androidx.constraintlayout.widget.ConstraintLayout>
