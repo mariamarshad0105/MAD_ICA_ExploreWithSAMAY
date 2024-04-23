@@ -5,23 +5,23 @@
 
     <item
         android:id="@+id/navigation_item_1"
-        android:icon="@drawable/house"
+        android:icon="@drawable/tab_house"
         android:title="Home" />
     <item
         android:id="@+id/navigation_item_2"
-        android:icon="@drawable/category"
+        android:icon="@drawable/tab_category"
         android:title="Categories" />
     <item
         android:id="@+id/navigation_item_3"
-        android:icon="@drawable/add"
+        android:icon="@drawable/tab_add"
         android:title="Add" />
     <item
         android:id="@+id/navigation_item_4"
-        android:icon="@drawable/like"
+        android:icon="@drawable/tab_like"
         android:title="Like" />
     <item
         android:id="@+id/navigation_item_5"
-        android:icon="@drawable/contact"
+        android:icon="@drawable/tab_contact"
         android:title="Contact" />
 
 </menu>

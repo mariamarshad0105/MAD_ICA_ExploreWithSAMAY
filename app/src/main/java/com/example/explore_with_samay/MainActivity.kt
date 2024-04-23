@@ -9,41 +9,41 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var bottomNavigationView: BottomNavigationView
 
-    private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        when (item.itemId) {
-            R.id.navigation_item_1 -> {
-                replaceFragment(Home())
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_item_2 -> {
-                replaceFragment(Categories())
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_item_3 -> {
-                replaceFragment(Add())
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_item_4 -> {
-                replaceFragment(Like())
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_item_5 -> {
-                replaceFragment(Contact())
-                return@OnNavigationItemSelectedListener true
-            }
-        }
-        false
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         bottomNavigationView = findViewById(R.id.bottom_navigation)
-        bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+        bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.navigation_item_1 -> {
+                    replaceFragment(Home.newInstance())
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.navigation_item_2 -> {
+                    replaceFragment(Categories.newInstance("param1_value", "param2_value"))
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.navigation_item_3 -> {
+                    replaceFragment(Add.newInstance("param1_value", "param2_value"))
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.navigation_item_4 -> {
+                    replaceFragment(Like.newInstance("param1_value", "param2_value"))
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.navigation_item_5 -> {
+                    replaceFragment(Contact.newInstance("param1_value", "param2_value"))
+                    return@setOnNavigationItemSelectedListener true
+                }
+                else -> false
+            }
+        }
 
-        // Initialize with the first fragment
-        replaceFragment(Home())
+        // Set the default fragment
+        if (savedInstanceState == null) {
+            replaceFragment(Home.newInstance())
+        }
     }
 
     private fun replaceFragment(fragment: Fragment) {

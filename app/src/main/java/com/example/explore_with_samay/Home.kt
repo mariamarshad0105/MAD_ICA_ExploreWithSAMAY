@@ -1,31 +1,20 @@
 package com.example.explore_with_samay
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
+import androidx.fragment.app.Fragment
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Home.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Home : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private lateinit var imageContainer: LinearLayout
+
+    companion object {
+        fun newInstance(): Home {
+            return Home()
         }
     }
 
@@ -33,27 +22,40 @@ class Home : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
+        imageContainer = view.findViewById(R.id.imageContainer)
+        setupImages() // Load and display images
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Home.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Home().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun setupImages() {
+        val imageResources = arrayOf(
+            R.drawable.food_bp_smoothie,
+            R.drawable.food_cheese_cake,
+            R.drawable.food_choc_trifle,
+            R.drawable.food_patties,
+            R.drawable.food_soflay
+        )
+
+        // Retrieve the margin value from resources
+        val margin = resources.getDimensionPixelSize(R.dimen.image_margin)
+
+        // Loop through image resources and add ImageViews to imageContainer
+        for (resId in imageResources) {
+            val imageView = ImageView(requireContext())
+            imageView.setImageResource(resId)
+            imageView.adjustViewBounds = true
+
+            // Apply margin to the bottom of each ImageView
+            val params = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+            params.bottomMargin = margin // Set the bottom margin
+            imageView.layoutParams = params
+
+            imageContainer.addView(imageView)
+        }
     }
 }
+
