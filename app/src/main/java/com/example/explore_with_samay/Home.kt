@@ -46,7 +46,8 @@ class Home : Fragment() {
             R.drawable.food_soflay,
             R.drawable.food_choc_trifle,
             R.drawable.food_cheese_cake,
-            R.drawable.food_soflay
+            R.drawable.food_soflay,
+            R.drawable.food_patties
         )
 
         val cornerRadius = resources.getDimensionPixelSize(R.dimen.corner_radius)
@@ -62,7 +63,7 @@ class Home : Fragment() {
             imageView.background = ContextCompat.getDrawable(requireContext(), R.drawable.rounded_corner)
             imageView.clipToOutline = true
             val layoutParams = GridLayout.LayoutParams().apply {
-                width = imageWidth - 23
+                width = imageWidth - 40
                 height = GridLayout.LayoutParams.WRAP_CONTENT
                 setMargins(margin, margin, margin, margin+10)
             }

@@ -18,23 +18,23 @@ class MainActivity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.navigation_item_1 -> {
                     replaceFragment(Home.newInstance())
-                    return@setOnNavigationItemSelectedListener true
+                    true
                 }
                 R.id.navigation_item_2 -> {
                     replaceFragment(Categories.newInstance("param1_value", "param2_value"))
-                    return@setOnNavigationItemSelectedListener true
+                    true
                 }
                 R.id.navigation_item_3 -> {
                     replaceFragment(Add.newInstance("param1_value", "param2_value"))
-                    return@setOnNavigationItemSelectedListener true
+                    true
                 }
                 R.id.navigation_item_4 -> {
                     replaceFragment(Like.newInstance("param1_value", "param2_value"))
-                    return@setOnNavigationItemSelectedListener true
+                    true
                 }
                 R.id.navigation_item_5 -> {
                     replaceFragment(Contact.newInstance("param1_value", "param2_value"))
-                    return@setOnNavigationItemSelectedListener true
+                    true
                 }
                 else -> false
             }
