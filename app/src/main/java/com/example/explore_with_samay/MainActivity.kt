@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_item_2 -> {
-                    replaceFragment(Categories.newInstance("param1_value", "param2_value"))
+                    replaceFragment(Categories.newInstance())
                     true
                 }
                 R.id.navigation_item_3 -> {
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_item_4 -> {
-                    replaceFragment(Like.newInstance("param1_value", "param2_value"))
+                    replaceFragment(Favourites.newInstance())
                     true
                 }
                 R.id.navigation_item_5 -> {

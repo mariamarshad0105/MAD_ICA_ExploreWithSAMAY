@@ -14,7 +14,7 @@
     <item
         android:id="@+id/navigation_item_3"
         android:icon="@drawable/tab_add"
-        android:title="Add" />
+        android:title="Favourites" />
     <item
         android:id="@+id/navigation_item_4"
         android:icon="@drawable/tab_like"

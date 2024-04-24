@@ -9,13 +9,13 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.core.content.ContextCompat
 
-class Categories : Fragment() {
+class Favourites : Fragment() {
 
     private lateinit var imageGridLayout: GridLayout
 
     companion object {
-        fun newInstance(): Categories {
-            return Categories()
+        fun newInstance(): Favourites {
+            return Favourites()
         }
     }
 
@@ -23,7 +23,7 @@ class Categories : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_categories, container, false)
+        val view = inflater.inflate(R.layout.fragment_favourites, container, false)
         imageGridLayout = view.findViewById(R.id.imageGridLayout)
         setupImages() // Load and display images
         return view
