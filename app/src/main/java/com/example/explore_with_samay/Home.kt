@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.GridLayout
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import androidx.core.content.ContextCompat
 
 class Home : Fragment() {
 
@@ -48,30 +49,25 @@ class Home : Fragment() {
             R.drawable.food_soflay
         )
 
-        val screenWidth = resources.displayMetrics.widthPixels
+        val cornerRadius = resources.getDimensionPixelSize(R.dimen.corner_radius)
         val margin = resources.getDimensionPixelSize(R.dimen.image_margin)
-        val columnCount = 2
-
-        // Calculate total available width for the grid
-        val totalPadding = (columnCount + 1) * margin
-        val availableWidth = screenWidth - totalPadding
-        val imageWidth = availableWidth / columnCount
-
-        imageGridLayout.columnCount = columnCount
+        val screenWidth = resources.displayMetrics.widthPixels
+        val spacing = 2 * margin // Double the margin for both sides of each image
+        val imageWidth = (screenWidth - spacing) / 2 // Calculate total width for each image
 
         for (resId in imageResources) {
             val imageView = ImageView(requireContext())
             imageView.setImageResource(resId)
             imageView.adjustViewBounds = true
-            imageView.scaleType = ImageView.ScaleType.CENTER_CROP // Ensure the image fills the space
-
+            imageView.background = ContextCompat.getDrawable(requireContext(), R.drawable.rounded_corner)
+            imageView.clipToOutline = true
             val layoutParams = GridLayout.LayoutParams().apply {
-                width = imageWidth
-                height = ViewGroup.LayoutParams.WRAP_CONTENT // Wrap content for height
-                setMargins(margin, margin, margin, margin)
+                width = imageWidth - 23
+                height = GridLayout.LayoutParams.WRAP_CONTENT
+                setMargins(margin, margin, margin, margin+10)
             }
-
-            imageGridLayout.addView(imageView, layoutParams)
+            imageView.layoutParams = layoutParams
+            imageGridLayout.addView(imageView)
         }
     }
 

@@ -29,7 +29,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="2"
-            android:padding="8dp"
             android:alignmentMode="alignMargins"
             android:layout_gravity="center_horizontal"/>
     </ScrollView>
