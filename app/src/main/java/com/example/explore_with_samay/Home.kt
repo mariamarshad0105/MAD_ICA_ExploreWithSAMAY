@@ -4,13 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.GridLayout
 import android.widget.ImageView
-import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 
 class Home : Fragment() {
 
-    private lateinit var imageContainer: LinearLayout
+    private lateinit var imageGridLayout: GridLayout
 
     companion object {
         fun newInstance(): Home {
@@ -23,7 +23,7 @@ class Home : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-        imageContainer = view.findViewById(R.id.imageContainer)
+        imageGridLayout = view.findViewById(R.id.imageGridLayout)
         setupImages() // Load and display images
         return view
     }
@@ -34,28 +34,45 @@ class Home : Fragment() {
             R.drawable.food_cheese_cake,
             R.drawable.food_choc_trifle,
             R.drawable.food_patties,
+            R.drawable.food_soflay,
+            R.drawable.food_choc_trifle,
+            R.drawable.food_cheese_cake,
+            R.drawable.food_soflay,
+            R.drawable.food_bp_smoothie,
+            R.drawable.food_cheese_cake,
+            R.drawable.food_choc_trifle,
+            R.drawable.food_patties,
+            R.drawable.food_soflay,
+            R.drawable.food_choc_trifle,
+            R.drawable.food_cheese_cake,
             R.drawable.food_soflay
         )
 
-        // Retrieve the margin value from resources
+        val screenWidth = resources.displayMetrics.widthPixels
         val margin = resources.getDimensionPixelSize(R.dimen.image_margin)
+        val columnCount = 2
 
-        // Loop through image resources and add ImageViews to imageContainer
+        // Calculate total available width for the grid
+        val totalPadding = (columnCount + 1) * margin
+        val availableWidth = screenWidth - totalPadding
+        val imageWidth = availableWidth / columnCount
+
+        imageGridLayout.columnCount = columnCount
+
         for (resId in imageResources) {
             val imageView = ImageView(requireContext())
             imageView.setImageResource(resId)
             imageView.adjustViewBounds = true
+            imageView.scaleType = ImageView.ScaleType.CENTER_CROP // Ensure the image fills the space
 
-            // Apply margin to the bottom of each ImageView
-            val params = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-            )
-            params.bottomMargin = margin // Set the bottom margin
-            imageView.layoutParams = params
+            val layoutParams = GridLayout.LayoutParams().apply {
+                width = imageWidth
+                height = ViewGroup.LayoutParams.WRAP_CONTENT // Wrap content for height
+                setMargins(margin, margin, margin, margin)
+            }
 
-            imageContainer.addView(imageView)
+            imageGridLayout.addView(imageView, layoutParams)
         }
     }
-}
 
+}
