@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:nestedScrollingEnabled="false"
-        app:cardBackgroundColor="#009688"
+        app:cardBackgroundColor="#424040"
         app:cardCornerRadius="20dp"
         app:contentPadding="15dp">
 
@@ -29,16 +29,14 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center|center_horizontal|top|center_vertical"
                 android:background="@drawable/rounded_corner"
-                android:scaleType="fitXY"
-                android:src="@drawable/food_cheese_cake" />
+                android:scaleType="fitXY" />
 
             <TextView
                 android:id="@+id/categoryTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
+                android:layout_gravity="center_horizontal"
                 android:paddingTop="10dp"
-                android:text="Category Name"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 android:textStyle="bold" />
