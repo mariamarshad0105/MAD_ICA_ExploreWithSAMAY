@@ -4,14 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.GridLayout
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
-import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class Categories : Fragment() {
 
-    private lateinit var imageGridLayout: GridLayout
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: CategoryAdapter
 
     companion object {
         fun newInstance(): Categories {
@@ -24,52 +24,26 @@ class Categories : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_categories, container, false)
-        imageGridLayout = view.findViewById(R.id.imageGridLayout)
-        setupImages() // Load and display images
+        recyclerView = view.findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+        adapter = CategoryAdapter(getCategoryList())
+        recyclerView.adapter = adapter
         return view
     }
 
-    private fun setupImages() {
-        val imageResources = arrayOf(
-            R.drawable.food_bp_smoothie,
-            R.drawable.food_cheese_cake,
-            R.drawable.food_choc_trifle,
-            R.drawable.food_patties,
-            R.drawable.food_soflay,
-            R.drawable.food_choc_trifle,
-            R.drawable.food_cheese_cake,
-            R.drawable.food_soflay,
-            R.drawable.food_bp_smoothie,
-            R.drawable.food_cheese_cake,
-            R.drawable.food_choc_trifle,
-            R.drawable.food_patties,
-            R.drawable.food_soflay,
-            R.drawable.food_choc_trifle,
-            R.drawable.food_cheese_cake,
-            R.drawable.food_soflay,
-            R.drawable.food_patties
-        )
-
-        val cornerRadius = resources.getDimensionPixelSize(R.dimen.corner_radius)
-        val margin = resources.getDimensionPixelSize(R.dimen.image_margin)
-        val screenWidth = resources.displayMetrics.widthPixels
-        val spacing = 2 * margin // Double the margin for both sides of each image
-        val imageWidth = (screenWidth - spacing) / 2 // Calculate total width for each image
-
-        for (resId in imageResources) {
-            val imageView = ImageView(requireContext())
-            imageView.setImageResource(resId)
-            imageView.adjustViewBounds = true
-            imageView.background = ContextCompat.getDrawable(requireContext(), R.drawable.rounded_corner)
-            imageView.clipToOutline = true
-            val layoutParams = GridLayout.LayoutParams().apply {
-                width = imageWidth - 40
-                height = GridLayout.LayoutParams.WRAP_CONTENT
-                setMargins(margin, margin, margin, margin+10)
-            }
-            imageView.layoutParams = layoutParams
-            imageGridLayout.addView(imageView)
-        }
+    private fun getCategoryList(): List<Category> {
+        // Create a list of category items (Category objects with image and name)
+        val categories = mutableListOf<Category>()
+        categories.add(Category("Category 1", R.drawable.food_bp_smoothie))
+        categories.add(Category("Category 2", R.drawable.food_patties))
+        categories.add(Category("Category 3", R.drawable.food_soflay))
+        categories.add(Category("Category 4", R.drawable.food_choc_trifle))
+        categories.add(Category("Category 5", R.drawable.food_patties))
+        categories.add(Category("Category 6", R.drawable.food_choc_trifle))
+        // Add more categories as needed
+        return categories
     }
-
 }
+
+
+

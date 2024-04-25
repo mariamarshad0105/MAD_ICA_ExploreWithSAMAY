@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center|clip_vertical"
-    tools:context=".Add">
+    tools:context=".Shorts">
 
     <TextView
         android:id="@+id/textView"
@@ -13,7 +13,7 @@
         android:layout_height="54dp"
         android:layout_gravity="center|top"
         android:gravity="center"
-        android:text="Add New Recipe"
+        android:text="All Shorts"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="30sp"
         android:textStyle="bold|italic"

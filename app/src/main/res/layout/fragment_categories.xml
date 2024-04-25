@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- fragment_categories.xml -->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -15,28 +16,20 @@
         android:text="Categories"
         android:textSize="36sp"
         android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- ScrollView for images -->
-    <ScrollView
-        android:id="@+id/scrollView2"
+    <!-- RecyclerView to display category items -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleTextView">
-
-        <!-- GridLayout for displaying images -->
-        <GridLayout
-            android:id="@+id/imageGridLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:columnCount="2"
-            android:padding="8dp" />
-
-    </ScrollView>
+        app:layout_constraintTop_toBottomOf="@id/titleTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+

@@ -50,7 +50,6 @@ class Home : Fragment() {
             R.drawable.food_patties
         )
 
-        val cornerRadius = resources.getDimensionPixelSize(R.dimen.corner_radius)
         val margin = resources.getDimensionPixelSize(R.dimen.image_margin)
         val screenWidth = resources.displayMetrics.widthPixels
         val spacing = 2 * margin // Double the margin for both sides of each image
@@ -63,7 +62,7 @@ class Home : Fragment() {
             imageView.background = ContextCompat.getDrawable(requireContext(), R.drawable.rounded_corner)
             imageView.clipToOutline = true
             val layoutParams = GridLayout.LayoutParams().apply {
-                width = imageWidth - 40
+                width = imageWidth - 30
                 height = GridLayout.LayoutParams.WRAP_CONTENT
                 setMargins(margin, margin, margin, margin+10)
             }

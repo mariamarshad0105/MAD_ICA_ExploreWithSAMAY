@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- item_category.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <!-- Category Image with Rounded Corners -->
+    <ImageView
+        android:id="@+id/categoryImageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/food_cheese_cake"
+        android:background="@drawable/rounded_corner"/>
+
+    <!-- Category Name Text -->
+    <TextView
+        android:id="@+id/categoryTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Category Name"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>
