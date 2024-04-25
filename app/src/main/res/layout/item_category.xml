@@ -28,7 +28,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center|center_horizontal|top|center_vertical"
-                android:background="@drawable/rounded_corner"
+                android:background="@android:color/transparent"
                 android:scaleType="fitXY" />
 
             <TextView

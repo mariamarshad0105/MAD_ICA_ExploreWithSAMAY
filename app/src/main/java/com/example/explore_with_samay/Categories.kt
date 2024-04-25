@@ -34,15 +34,15 @@ class Categories : Fragment() {
     private fun getCategoryList(): List<Category> {
         // Create a list of category items (Category objects with image and name)
         val categories = mutableListOf<Category>()
-        categories.add(Category("Desserts", R.drawable.food_bp_smoothie))
-        categories.add(Category("Bakery", R.drawable.food_patties))
-        categories.add(Category("Drinks", R.drawable.food_soflay))
-        categories.add(Category("Salads", R.drawable.food_choc_trifle))
-        categories.add(Category("Pasta", R.drawable.food_patties))
-        categories.add(Category("Breakfast", R.drawable.food_choc_trifle))
-        categories.add(Category("Appetizers", R.drawable.food_choc_trifle))
-        categories.add(Category("Mains", R.drawable.food_choc_trifle))
-        categories.add(Category("Ice Creams", R.drawable.food_choc_trifle))
+        categories.add(Category("Desserts", R.drawable.cat_desserts))
+        categories.add(Category("Bakery", R.drawable.cat_bakery))
+        categories.add(Category("Drinks", R.drawable.cat_drinks))
+        categories.add(Category("Salads", R.drawable.cat_salad))
+        categories.add(Category("Pasta", R.drawable.cat_pasta))
+        categories.add(Category("Breakfast", R.drawable.cat_breakfast))
+        categories.add(Category("Appetizers", R.drawable.cat_appetizers))
+        categories.add(Category("Mains", R.drawable.cat_mains))
+        categories.add(Category("Ice Creams", R.drawable.cat_icecreams))
         // Add more categories as needed
         return categories
     }
