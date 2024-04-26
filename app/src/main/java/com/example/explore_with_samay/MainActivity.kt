@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_item_3 -> {
-                    replaceFragment(Shorts.newInstance("param1_value", "param2_value"))
+                    replaceFragment(Shorts.newInstance())
                     true
                 }
                 R.id.navigation_item_4 -> {
