@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_item_5 -> {
-                    replaceFragment(Contact.newInstance("param1_value", "param2_value"))
+                    replaceFragment(Contact.newInstance())
                     true
                 }
                 else -> false
