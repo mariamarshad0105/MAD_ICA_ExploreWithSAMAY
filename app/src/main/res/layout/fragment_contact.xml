@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:gravity="start|bottom"
+            android:gravity="center_horizontal"
             android:lineSpacingMultiplier="1.2"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
@@ -65,80 +65,80 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="7dp"
                     android:nestedScrollingEnabled="false"
                     app:cardBackgroundColor="#424040"
                     app:cardCornerRadius="20dp"
-                    app:contentPadding="6dp">
+                    app:contentPadding="10dp">
 
                     <ImageView
                         android:id="@+id/socialImageView"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center|center_horizontal|top|center_vertical"
                         android:background="@android:color/transparent"
                         android:scaleType="fitXY"
-                        android:src="@drawable/cat_appetizers" />
+                        android:src="@drawable/contact_youtube" />
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="7dp"
                     android:nestedScrollingEnabled="false"
                     app:cardBackgroundColor="#424040"
                     app:cardCornerRadius="20dp"
-                    app:contentPadding="6dp">
+                    app:contentPadding="10dp">
 
                     <ImageView
-                        android:id="@+id/socialImageView"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:id="@+id/socialImageView1"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center|center_horizontal|top|center_vertical"
                         android:background="@android:color/transparent"
                         android:scaleType="fitXY"
-                        android:src="@drawable/cat_appetizers" />
+                        android:src="@drawable/contact_tiktok" />
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="7dp"
                     android:nestedScrollingEnabled="false"
                     app:cardBackgroundColor="#424040"
                     app:cardCornerRadius="20dp"
-                    app:contentPadding="6dp">
+                    app:contentPadding="10dp">
 
                     <ImageView
-                        android:id="@+id/socialImageView"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:id="@+id/socialImageView2"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center|center_horizontal|top|center_vertical"
                         android:background="@android:color/transparent"
                         android:scaleType="fitXY"
-                        android:src="@drawable/cat_appetizers" />
+                        android:src="@drawable/contact_instagram" />
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="7dp"
                     android:nestedScrollingEnabled="false"
                     app:cardBackgroundColor="#424040"
                     app:cardCornerRadius="20dp"
-                    app:contentPadding="6dp">
+                    app:contentPadding="10dp">
 
                     <ImageView
-                        android:id="@+id/socialImageView"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:id="@+id/socialImageView3"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center|center_horizontal|top|center_vertical"
                         android:background="@android:color/transparent"
                         android:scaleType="fitXY"
-                        android:src="@drawable/cat_appetizers" />
+                        android:src="@drawable/contact_whatsapp" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -154,60 +154,60 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="7dp"
                     android:nestedScrollingEnabled="false"
                     app:cardBackgroundColor="#424040"
                     app:cardCornerRadius="20dp"
-                    app:contentPadding="6dp">
+                    app:contentPadding="10dp">
 
                     <ImageView
-                        android:id="@+id/socialImageView"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:id="@+id/socialImageView4"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center|center_horizontal|top|center_vertical"
                         android:background="@android:color/transparent"
                         android:scaleType="fitXY"
-                        android:src="@drawable/cat_appetizers" />
+                        android:src="@drawable/contact_gmail" />
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="7dp"
                     android:nestedScrollingEnabled="false"
                     app:cardBackgroundColor="#424040"
                     app:cardCornerRadius="20dp"
-                    app:contentPadding="6dp">
+                    app:contentPadding="10dp">
 
                     <ImageView
-                        android:id="@+id/socialImageView"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:id="@+id/socialImageView5"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center|center_horizontal|top|center_vertical"
                         android:background="@android:color/transparent"
                         android:scaleType="fitXY"
-                        android:src="@drawable/cat_appetizers" />
+                        android:src="@drawable/contact_facebook" />
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:layout_margin="7dp"
                     android:nestedScrollingEnabled="false"
                     app:cardBackgroundColor="#424040"
                     app:cardCornerRadius="20dp"
-                    app:contentPadding="6dp">
+                    app:contentPadding="10dp">
 
                     <ImageView
-                        android:id="@+id/socialImageView"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:id="@+id/socialImageView6"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center|center_horizontal|top|center_vertical"
                         android:background="@android:color/transparent"
                         android:scaleType="fitXY"
-                        android:src="@drawable/cat_appetizers" />
+                        android:src="@drawable/contact_twitter" />
 
                 </androidx.cardview.widget.CardView>
             </TableRow>
