@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.PagerSnapHelper
+
 
 class Shorts : Fragment() {
 
@@ -36,10 +38,15 @@ class Shorts : Fragment() {
 
         // Create a WebView for each video and add it to the layout
         videosLayout.apply {
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = ShortsAdapter(videoUrls.map { VideoModel(it) })
+            // Attach PagerSnapHelper
+            val pagerSnapHelper = PagerSnapHelper()
+            pagerSnapHelper.attachToRecyclerView(this)
         }
 
         return view
     }
+
 }
+
