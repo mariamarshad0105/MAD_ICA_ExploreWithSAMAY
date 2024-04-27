@@ -43,7 +43,8 @@ class Shorts : Fragment() {
                 resources.getDimensionPixelSize(R.dimen.video_height)
             )
             webView.layoutParams = layoutParams
-            val videoHtml = "<iframe width=\"100%\" height=\"100%\" src=\"$videoUrl\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>"
+            val modifiedVideoUrl = "$videoUrl?rel=0"
+            val videoHtml = "<iframe width=\"100%\" height=\"100%\" src=\"$modifiedVideoUrl\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>"
             webView.loadData(videoHtml, "text/html", "utf-8")
             webView.settings.javaScriptEnabled = true
             webView.settings.mediaPlaybackRequiresUserGesture = false
