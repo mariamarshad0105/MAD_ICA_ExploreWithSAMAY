@@ -4,10 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebChromeClient
-import android.webkit.WebView
-import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class Shorts : Fragment() {
 
@@ -25,7 +24,7 @@ class Shorts : Fragment() {
         val view = inflater.inflate(R.layout.fragment_shorts, container, false)
 
         // Container for WebViews
-        val videosLayout: LinearLayout = view.findViewById(R.id.videosLayout)
+        val videosLayout: RecyclerView = view.findViewById(R.id.videosRecyclerView)
 
         // List of video URLs
         val videoUrls = listOf(
@@ -36,23 +35,9 @@ class Shorts : Fragment() {
         )
 
         // Create a WebView for each video and add it to the layout
-        videoUrls.forEach { videoUrl ->
-            val webView = WebView(context ?: return null)
-            val layoutParams = LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                resources.getDimensionPixelSize(R.dimen.video_height)
-            )
-            webView.layoutParams = layoutParams
-            val modifiedVideoUrl = "$videoUrl?rel=0"
-            val videoHtml = "<iframe width=\"100%\" height=\"100%\" src=\"$modifiedVideoUrl\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>"
-            webView.loadData(videoHtml, "text/html", "utf-8")
-            webView.settings.javaScriptEnabled = true
-            webView.settings.mediaPlaybackRequiresUserGesture = false
-            webView.settings.loadWithOverviewMode = true
-            webView.settings.useWideViewPort = true
-            webView.webChromeClient = WebChromeClient()
-
-            videosLayout.addView(webView)
+        videosLayout.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            adapter = ShortsAdapter(videoUrls.map { VideoModel(it) })
         }
 
         return view
