@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebChromeClient
 import android.webkit.WebView
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 
 class Shorts : Fragment() {
@@ -23,15 +24,35 @@ class Shorts : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_shorts, container, false)
 
-        val webView: WebView = view.findViewById(R.id.webView)
-        val video =
-            "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/tUesv5u5bvA\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>"
-        webView.loadData(video, "text/html", "utf-8")
-        webView.settings.javaScriptEnabled = true
-        webView.settings.mediaPlaybackRequiresUserGesture = false
-        webView.settings.loadWithOverviewMode = true
-        webView.settings.useWideViewPort = true
-        webView.webChromeClient = WebChromeClient()
+        // Container for WebViews
+        val videosLayout: LinearLayout = view.findViewById(R.id.videosLayout)
+
+        // List of video URLs
+        val videoUrls = listOf(
+            "https://www.youtube.com/embed/ZOIhcNiYRaU",
+            "https://www.youtube.com/embed/8luUsnB5ong",
+            "https://www.youtube.com/embed/7oX93fMVFwk"
+            // Add more video URLs here
+        )
+
+        // Create a WebView for each video and add it to the layout
+        videoUrls.forEach { videoUrl ->
+            val webView = WebView(context ?: return null)
+            val layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                resources.getDimensionPixelSize(R.dimen.video_height)
+            )
+            webView.layoutParams = layoutParams
+            val videoHtml = "<iframe width=\"100%\" height=\"100%\" src=\"$videoUrl\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>"
+            webView.loadData(videoHtml, "text/html", "utf-8")
+            webView.settings.javaScriptEnabled = true
+            webView.settings.mediaPlaybackRequiresUserGesture = false
+            webView.settings.loadWithOverviewMode = true
+            webView.settings.useWideViewPort = true
+            webView.webChromeClient = WebChromeClient()
+
+            videosLayout.addView(webView)
+        }
 
         return view
     }
