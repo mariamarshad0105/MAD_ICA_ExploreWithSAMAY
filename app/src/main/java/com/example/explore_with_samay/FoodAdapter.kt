@@ -1,13 +1,14 @@
 package com.example.explore_with_samay
 
 import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
+import android.widget.VideoView
 import androidx.recyclerview.widget.RecyclerView
 
-class FoodAdapter(private val context: Context, private val imageList: List<Int>) :
+class FoodAdapter(private val context: Context, private val videoList: List<Int>) :
     RecyclerView.Adapter<FoodAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -16,15 +17,17 @@ class FoodAdapter(private val context: Context, private val imageList: List<Int>
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val imageResId = imageList[position]
-        holder.imageView.setImageResource(imageResId)
+        val videoResId = videoList[position]
+        holder.videoView.setVideoURI(Uri.parse("android.resource://" + context.packageName + "/" + videoResId))
+        holder.videoView.start()
     }
 
     override fun getItemCount(): Int {
-        return imageList.size
+        return videoList.size
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageView: ImageView = itemView.findViewById(R.id.imageView)
+        val videoView: VideoView = itemView.findViewById(R.id.videoView)
     }
 }
+

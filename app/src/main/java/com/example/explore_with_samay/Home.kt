@@ -1,18 +1,16 @@
 package com.example.explore_with_samay
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.GridLayout
-import android.widget.ImageView
-import androidx.core.content.ContextCompat
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 
 class Home : Fragment() {
-
-    private lateinit var imageGridLayout: GridLayout
 
     companion object {
         fun newInstance(): Home {
@@ -21,57 +19,43 @@ class Home : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_home, container, false)
-        imageGridLayout = view.findViewById(R.id.imageGridLayout)
-        setupImages() // Load and display images
-        return view
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
-    private fun setupImages() {
-        val imageResources = arrayOf(
-            R.drawable.food_bp_smoothie,
-            R.drawable.food_cheese_cake,
-            R.drawable.food_choc_trifle,
-            R.drawable.food_patties,
-            R.drawable.food_soflay,
-            R.drawable.food_choc_trifle,
-            R.drawable.food_cheese_cake,
-            R.drawable.food_soflay,
-            R.drawable.food_bp_smoothie,
-            R.drawable.food_cheese_cake,
-            R.drawable.food_choc_trifle,
-            R.drawable.food_patties,
-            R.drawable.food_soflay,
-            R.drawable.food_choc_trifle,
-            R.drawable.food_cheese_cake,
-            R.drawable.food_soflay,
-            R.drawable.food_patties
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val layout = view.findViewById<LinearLayout>(R.id.youtube_layout)
+
+        // List of video IDs
+        val videoIds = listOf(
+            "qIcJ4DbdGg4",
+            "yNcANrb8Oo8",
+            "qIcJ4DbdGg4",
+            "yNcANrb8Oo8",
+            "qIcJ4DbdGg4",
+            "qIcJ4DbdGg4",
+            "yNcANrb8Oo8"
         )
 
-        val margin = resources.getDimensionPixelSize(R.dimen.image_margin)
-        val screenWidth = resources.displayMetrics.widthPixels
-        val spacing = 2 * margin // Double the margin for both sides of each image
-        val imageWidth = (screenWidth - spacing) / 2 // Calculate total width for each image
+        for (videoId in videoIds) {
+            val playerView = YouTubePlayerView(requireContext())
+            playerView.layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+            layout.addView(playerView)
 
-        for (resId in imageResources) {
-            val imageView = ImageView(requireContext())
-            imageView.setImageResource(resId)
-            imageView.adjustViewBounds = true
-            imageView.background = ContextCompat.getDrawable(requireContext(), R.drawable.rounded_corner)
-            imageView.clipToOutline = true
-            val layoutParams = GridLayout.LayoutParams().apply {
-                width = imageWidth - 30
-                height = GridLayout.LayoutParams.WRAP_CONTENT
-                setMargins(margin, margin, margin, margin + 10)
-            }
-            imageView.layoutParams = layoutParams
-
-
-
-            imageGridLayout.addView(imageView)
+            playerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+                override fun onReady(youTubePlayer: YouTubePlayer) {
+                    youTubePlayer.loadVideo(videoId, 0f)
+                }
+            })
         }
     }
 }
