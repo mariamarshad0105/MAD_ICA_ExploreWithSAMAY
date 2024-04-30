@@ -9,18 +9,14 @@
         android:title="Home" />
     <item
         android:id="@+id/navigation_item_2"
-        android:icon="@drawable/tab_category"
-        android:title="Categories" />
-    <item
-        android:id="@+id/navigation_item_3"
         android:icon="@drawable/tab_shorts"
         android:title="Shorts" />
     <item
-        android:id="@+id/navigation_item_4"
-        android:icon="@drawable/tab_like"
-        android:title="Favourites" />
+        android:id="@+id/navigation_item_3"
+        android:icon="@drawable/tab_shop"
+        android:title="Shop" />
     <item
-        android:id="@+id/navigation_item_5"
+        android:id="@+id/navigation_item_4"
         android:icon="@drawable/tab_contact"
         android:title="Contact" />
 

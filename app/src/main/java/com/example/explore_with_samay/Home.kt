@@ -69,14 +69,7 @@ class Home : Fragment() {
             }
             imageView.layoutParams = layoutParams
 
-            // Set OnClickListener for each ImageView
-            imageView.setOnClickListener {
-                // Start RecipeDetailActivity and pass image ID as extra
-                val intent = Intent(requireContext(), RecipeDetailActivity::class.java).apply {
-                    putExtra("image_id", resId)
-                }
-                startActivity(intent)
-            }
+
 
             imageGridLayout.addView(imageView)
         }

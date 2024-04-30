@@ -21,18 +21,14 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_item_2 -> {
-                    replaceFragment(Categories.newInstance())
-                    true
-                }
-                R.id.navigation_item_3 -> {
                     replaceFragment(Shorts.newInstance())
                     true
                 }
-                R.id.navigation_item_4 -> {
-                    replaceFragment(Favourites.newInstance())
+                R.id.navigation_item_3 -> {
+                    replaceFragment(Shop.newInstance())
                     true
                 }
-                R.id.navigation_item_5 -> {
+                R.id.navigation_item_4 -> {
                     replaceFragment(Contact.newInstance())
                     true
                 }

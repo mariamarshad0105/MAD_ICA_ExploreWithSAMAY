@@ -8,14 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class Categories : Fragment() {
+class Shop : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: CategoryAdapter
 
     companion object {
-        fun newInstance(): Categories {
-            return Categories()
+        fun newInstance(): Shop {
+            return Shop()
         }
     }
 
@@ -23,7 +23,7 @@ class Categories : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_categories, container, false)
+        val view = inflater.inflate(R.layout.fragment_shop, container, false)
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         adapter = CategoryAdapter(getCategoryList())
