@@ -1,5 +1,6 @@
 package com.example.explore_with_samay
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class Shop : Fragment() {
+class Shop : Fragment(), CategoryAdapter.OnItemClickListener {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: CategoryAdapter
@@ -26,7 +27,7 @@ class Shop : Fragment() {
         val view = inflater.inflate(R.layout.fragment_shop, container, false)
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-        adapter = CategoryAdapter(getCategoryList())
+        adapter = CategoryAdapter(getCategoryList(), this)
         recyclerView.adapter = adapter
         return view
     }
@@ -45,6 +46,18 @@ class Shop : Fragment() {
         categories.add(Category("Ice Creams", R.drawable.cat_icecreams))
         // Add more categories as needed
         return categories
+    }
+
+    override fun onItemClick(position: Int) {
+        // Handle item click here
+        // Start new activity with appropriate data based on the clicked position
+        // For example:
+        val clickedCategory = getCategoryList()[position]
+        val intent = Intent(requireContext(), OrderFood::class.java)
+        // Pass any data needed to the new activity
+        intent.putExtra("CATEGORY_NAME", clickedCategory.name)
+        intent.putExtra("CATEGORY_IMAGE", clickedCategory.imageResId)
+        startActivity(intent)
     }
 }
 

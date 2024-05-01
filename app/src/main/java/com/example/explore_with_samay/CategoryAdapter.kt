@@ -9,29 +9,51 @@ import androidx.recyclerview.widget.RecyclerView
 
 
 // Define the data class to represent a category item
-data class Category(val title: String, val imageResId: Int)
+data class Category(val name: String, val imageResId: Int)
+
 
 // Define the adapter for the RecyclerView
-class CategoryAdapter(private val categories: List<Category>) : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
+class CategoryAdapter(private val categoryList: List<Category>, private val listener: OnItemClickListener) :
+    RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
-    // ViewHolder to hold the views for each item
-    class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val categoryTextView: TextView = itemView.findViewById(R.id.categoryTextView)
-        val imageView: ImageView = itemView.findViewById(R.id.categoryImageView)
+    interface OnItemClickListener {
+        fun onItemClick(position: Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_shop, parent, false)
-        return CategoryViewHolder(view)
+        // Inflate the item layout
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_shop, parent, false)
+        // Return ViewHolder instance
+        return CategoryViewHolder(itemView)
     }
 
+
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        val category = categories[position]
-        holder.categoryTextView.text = category.title
+        val category = categoryList[position]
+        holder.categoryTextView.text = category.name
         holder.imageView.setImageResource(category.imageResId)
     }
 
+
     override fun getItemCount(): Int {
-        return categories.size
+        return categoryList.size
+    }
+
+    inner class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+
+        val categoryTextView: TextView = itemView.findViewById(R.id.categoryTextView)
+        val imageView: ImageView = itemView.findViewById(R.id.categoryImageView)
+        init {
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View?) {
+            val position = adapterPosition
+            if (position != RecyclerView.NO_POSITION) {
+                listener.onItemClick(position)
+            }
+            return
+        }
     }
 }
+
