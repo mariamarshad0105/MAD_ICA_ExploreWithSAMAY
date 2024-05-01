@@ -30,13 +30,19 @@ class Shorts : Fragment() {
 
         // List of video URLs
         val videoUrls = listOf(
-            "https://www.youtube.com/embed/FP6OXJ62hQI",
+            "https://www.youtube.com/embed/5tGqPgxI65g",
             "https://www.youtube.com/embed/8luUsnB5ong",
             "https://www.youtube.com/embed/phYVSgdSGFw",
             "https://www.youtube.com/embed/ZOIhcNiYRaU",
             "https://www.youtube.com/embed/8A-DmtUvAN0",
-            "https://www.youtube.com/embed/7oX93fMVFwk"
-            // Add more video URLs here
+            "https://www.youtube.com/embed/7oX93fMVFwk",
+            "https://www.youtube.com/embed/FP6OXJ62hQI",
+            "https://www.youtube.com/embed/PZmGE-E1P3s",
+            "https://www.youtube.com/embed/ZM8NtAjJuUA",
+            "https://www.youtube.com/embed/RUVEFd_mtJw",
+            "https://www.youtube.com/embed/f5g4oR3yI_Q",
+            "https://www.youtube.com/embed/T_naa3zTTgs"
+
         )
 
         // Create a WebView for each video and add it to the layout

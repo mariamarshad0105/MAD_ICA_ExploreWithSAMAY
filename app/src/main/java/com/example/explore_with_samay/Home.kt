@@ -36,11 +36,16 @@ class Home : Fragment() {
         val videoIds = listOf(
             "qIcJ4DbdGg4",
             "yNcANrb8Oo8",
-            "qIcJ4DbdGg4",
-            "yNcANrb8Oo8",
-            "qIcJ4DbdGg4",
-            "qIcJ4DbdGg4",
-            "yNcANrb8Oo8"
+            "uYI0zRhFYKU",
+            "65EN-mbZRNg",
+            "7Twsu6MmwS4",
+            "GieX79QzIPM",
+            "HwXYpvN8zLk",
+            "U1OPTQ7w_q4",
+            "0WwADnysuPw",
+            "z5KjXOKifK0",
+            "bAZbJDz8hNA",
+            "KUZupTQtduE"
         )
 
         for (videoId in videoIds) {
